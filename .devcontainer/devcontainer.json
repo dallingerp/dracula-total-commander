@@ -1,0 +1,30 @@
+{
+  "name": "Jinja2 & Python Development",
+  "image": "mcr.microsoft.com/devcontainers/python:3.14-trixie",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:1": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true
+    }
+  },
+  // Automatically install required CLI tools & Jinja2 packages upon container build
+  "postCreateCommand": "pip install jinja2 jinja2-cli pyyaml",
+  "customizations": {
+    "vscode": {
+      // Useful extensions for editing Jinja2 templates, JSON, and YAML
+      "extensions": [
+        "samuelcolvin.jinjahtml",
+        "ms-python.python",
+        "redhat.vscode-yaml",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "[jinja]": {
+          "editor.defaultFormatter": "samuelcolvin.jinjahtml"
+        }
+      }
+    }
+  },
+  // Ensure terminal runs with correct privileges
+  "remoteUser": "vscode"
+}

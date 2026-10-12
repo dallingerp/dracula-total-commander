@@ -1,0 +1,57 @@
+{% set d = theme[config.darkTheme] %}
+{% set l = theme[config.lightTheme] %}
+[ColorsDark]
+InverseCursor=0
+InverseSelection=1
+ThemedCursor=0
+BackColor={{d.Background}}
+BackColor2={% if config.stripes %}{{d.BackgroundDark}}{% else %}{{d.Background}}{% endif %}
+ForeColor={{d.Foreground}}
+MarkColor={{d.Selection}}
+CursorColor={{d.Pink}}
+CursorText={{d.Pink}}
+DarkBackground={{d.Background}}
+DarkHighlight={{d.Selection}}
+CompareText={{d.AnsiRed}}
+CompareTextSel={{d.Purple}}
+CompareBinary={{d.AnsiRed}}
+CompareBinarySel={{d.Purple}}
+CompareSelText={{d.Pink}}
+CompareSelBack={{d.Selection}}
+CompareSearchLine={{d.AnsiGreen}}
+SyncSelBack={{d.Selection}}
+HintForeground={{d.Orange}}
+HintBackground={{d.Selection}}
+HintBorder={{d.Orange}}
+
+[Colors]
+InverseCursor=0
+InverseSelection=1
+ThemedCursor=0
+BackColor={{l.Background}}
+BackColor2={% if config.stripes %}{{l.BackgroundDark}}{% else %}{{l.Background}}{% endif %}
+ForeColor={{l.Foreground}}
+MarkColor={{l.Selection}}
+CursorColor={{l.Pink}}
+CursorText={{l.Pink}}
+DarkBackground={{l.Background}}
+DarkHighlight={{l.Selection}}
+CompareText={{l.AnsiRed}}
+CompareTextSel={{l.Purple}}
+CompareBinary={{l.AnsiRed}}
+CompareBinarySel={{l.Purple}}
+CompareSelText={{l.Pink}}
+CompareSelBack={{l.Selection}}
+CompareSearchLine={{l.AnsiGreen}}
+SyncSelBack={{l.Selection}}
+HintForeground={{l.Orange}}
+HintBackground={{l.Selection}}
+HintBorder={{l.Orange}}
+
+{% set enabled_filters = fileColors | selectattr('enabled', 'equalto', true) | list %}
+{% for item in enabled_filters %}
+ColorFilter{{ loop.index }}={{ item.mask }}
+ColorFilter{{ loop.index }}Color={{ l[item.color] }}
+ColorFilter{{ loop.index }}ColorDark={{ d[item.color] }}
+{% endfor %}
+
