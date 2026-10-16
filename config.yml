@@ -3,6 +3,11 @@ config:
   darkTheme: dracula
   stripes: true
 fileColors: # list of file colors, order matters - first match will be used
+  -
+    mask: '>Directories'
+    color: Cyan
+    enabled: true
+
   - # Audio Files
     mask: "*.mp3;*.ogg;*.flac;*.wav;*.ape;*.wv;*.wma;*.mpc"
     color: Green
@@ -60,7 +65,7 @@ fileColors: # list of file colors, order matters - first match will be used
     color: Yellow
     enabled: true
   - # Spreadsheets & Presentations
-    mask: "*.xls;*.ods;*.ppt;*.pps"
+    mask: "*.xls;*.xlsx;*.xlsm;*.ods;*.ppt;*.pptx;*.pps"
     color: Yellow
     enabled: true
   - # Help Files & Documentation
@@ -87,15 +92,11 @@ fileColors: # list of file colors, order matters - first match will be used
     color: Orange
     enabled: true
   - # Python & Ruby
-    mask: "*.py;*.rb"
+    mask: "*.py;*.rb;*.j2"
     color: Orange
     enabled: true
   - # Delphi / Pascal
     mask: "*.pas;*.dpr;*.dcu;*.dfm;*.dof;*.dcr;*.dcp;*.bpl;*.dpk;*.bpk"
-    color: Orange
-    enabled: true
-  - # Assembly
-    mask: "*.asm"
     color: Orange
     enabled: true
   - # Web Languages
@@ -103,11 +104,11 @@ fileColors: # list of file colors, order matters - first match will be used
     color: Orange
     enabled: true
   - # Shell & Scripting
-    mask: "*.bat;*.cmd;*.sh;*.bash;*.vbs"
+    mask: "*.bat;*.cmd;*.sh;*.bash;*.vbs;*.ps1"
     color: AnsiBrightGreen
     enabled: true
-  - # Database Queries
-    mask: "*.sql"
+  - # Other
+    mask: "*.sql;*.asm;*.lua"
     color: Orange
     enabled: true
 
@@ -117,7 +118,7 @@ fileColors: # list of file colors, order matters - first match will be used
     color: Orange
     enabled: true
   - # Visual Studio & IDE Projects
-    mask: "*.sln;*.vcproj;*.vcxproj;*.csproj;*.dsp;*.dsw;*.cbp;*.bpr;*.stw;*.workspace;*.dev"
+    mask: "*.sln;*.vcproj;*.vcxproj;*.csproj;*.dsp;*.dsw;*.cbp;*.bpr;*.stw;*.workspace;*.dev;*.code-workspace"
     color: AnsiBrightGreen
     enabled: true
   - # Resource & Definition Files
@@ -149,7 +150,7 @@ fileColors: # list of file colors, order matters - first match will be used
     color: Pink
     enabled: true
   - # Data & Markup Languages
-    mask: "*.xml;*.xsd;*.xdr;*.layout;*.kll"
+    mask: "*.xml;*.xsd;*.xdr;*.layout;*.kll;*.json;*.csv;*.yml;*.yaml"
     color: Orange
     enabled: true
   - # System & Registry
@@ -202,11 +203,6 @@ fileColors: # list of file colors, order matters - first match will be used
     mask: "*.bullet;*.dir;*.cf;*.cp;*.lst;*.lss;*.d;*.internal;*.bar;*.theme;*.scntoc;*.sav"
     color: Comment
     enabled: false
-
-  -
-    mask: '>Directories'
-    color: Cyan
-    enabled: true
 
 theme: # color format: $00BBGGRR
   dracula:
